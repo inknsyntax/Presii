@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+:root {
+  --accent: #2369ff;
+  --text-color: #0f172a;
+  --title-color: #0b1220;
+  --muted-text: #425466;
+  --panel-bg: rgba(255, 255, 255, 0.83);
+  --control-bg: rgba(255, 255, 255, 0.92);
+  --chip-bg: rgba(35, 105, 255, 0.1);
+  --border-color: rgba(20, 48, 84, 0.14);
+  --hero-a: #1e3a8a;
+  --hero-b: #155e75;
+  --hero-text: #ecf4ff;
+  --page-bg: radial-gradient(circle at 10% 10%, #f2f8ff 0, #f5f7fb 50%, #f0f4ff 100%);
+}
+
+html[data-theme="solid-white"] {
+  --page-bg: #ffffff;
+}
+
+html[data-theme="solid-light-grey"] {
+  --page-bg: #f2f3f5;
+}
+
+html[data-theme="chastity"] {
+  --page-bg: linear-gradient(145deg, #ebe8ff, #ffe6b6);
+  --hero-a: #6f63d2;
+  --hero-b: #d3a04b;
+  --accent: #7b52d6;
+}
+
+html[data-theme="water"] {
+  --page-bg: linear-gradient(145deg, #8dc8ff, #eaf8ff);
+  --hero-a: #0b5fae;
+  --hero-b: #4ca7d6;
+  --accent: #1267c6;
+}
+
+html[data-theme="wind"] {
+  --page-bg: linear-gradient(160deg, #d7dde4, #ecf4ff);
+  --hero-a: #50657e;
+  --hero-b: #8aa9cb;
+  --accent: #3a5d87;
+}
+
+html[data-theme="solid-black"] {
+  --page-bg: #0d0d0d;
+  --text-color: #dbe4ea;
+  --title-color: #f2f7fd;
+  --muted-text: #a4b3bf;
+  --panel-bg: rgba(14, 14, 14, 0.88);
+  --control-bg: rgba(21, 21, 21, 0.93);
+  --chip-bg: rgba(219, 228, 234, 0.15);
+  --border-color: rgba(255, 255, 255, 0.14);
+  --hero-a: #1f1f1f;
+  --hero-b: #000;
+  --hero-text: #fafafa;
+  --accent: #5ca7ff;
+}
+
+html[data-theme="solid-dark-grey"] {
+  --page-bg: #1f2328;
+  --text-color: #e6ecf1;
+  --title-color: #fbfdff;
+  --muted-text: #b5c1cc;
+  --panel-bg: rgba(35, 39, 44, 0.88);
+  --control-bg: rgba(42, 47, 53, 0.92);
+  --chip-bg: rgba(230, 236, 241, 0.12);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --hero-a: #2e3440;
+  --hero-b: #171b20;
+  --hero-text: #f6f8fb;
+  --accent: #7eb6ff;
+}
+
+html[data-theme="earth"] {
+  --page-bg: linear-gradient(140deg, #0f2f22, #113d5e);
+  --text-color: #d4ecdf;
+  --title-color: #f3fff8;
+  --muted-text: #a7d2bc;
+  --panel-bg: rgba(8, 30, 31, 0.75);
+  --control-bg: rgba(11, 45, 46, 0.82);
+  --chip-bg: rgba(177, 235, 207, 0.15);
+  --border-color: rgba(198, 255, 233, 0.2);
+  --hero-a: #1b5f4d;
+  --hero-b: #1a5179;
+  --hero-text: #ecfff6;
+  --accent: #46bf94;
+}
+
+html[data-theme="lust"] {
+  --page-bg: linear-gradient(145deg, #630b1c, #0e0e11);
+  --text-color: #fde8ed;
+  --title-color: #fff6f8;
+  --muted-text: #f0b9c5;
+  --panel-bg: rgba(31, 9, 14, 0.8);
+  --control-bg: rgba(50, 15, 22, 0.82);
+  --chip-bg: rgba(250, 196, 210, 0.14);
+  --border-color: rgba(255, 206, 221, 0.2);
+  --hero-a: #8c142f;
+  --hero-b: #130c0f;
+  --hero-text: #ffeef3;
+  --accent: #ff5f89;
+}
+
+html[data-theme="fire"] {
+  --page-bg: linear-gradient(145deg, #2f0d0d, #8b2a03, #ffb347);
+  --text-color: #fff3de;
+  --title-color: #fffbef;
+  --muted-text: #ffe2b2;
+  --panel-bg: rgba(48, 16, 9, 0.78);
+  --control-bg: rgba(74, 22, 8, 0.84);
+  --chip-bg: rgba(255, 209, 133, 0.16);
+  --border-color: rgba(255, 224, 156, 0.22);
+  --hero-a: #ab1f00;
+  --hero-b: #d97706;
+  --hero-text: #fff3e3;
+  --accent: #ffb03b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background: var(--page-bg);
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", Georgia, serif;
+}
