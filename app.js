@@ -133,8 +133,11 @@ const state = {
 
 const elements = {
   form: document.getElementById("giftForm"),
+  heroSearchButton: document.getElementById("heroSearchButton"),
+  searchButton: document.getElementById("searchButton"),
   themePicker: document.getElementById("themePicker"),
   resultsGrid: document.getElementById("resultsGrid"),
+  resultsSection: document.getElementById("resultsSection"),
   insightsList: document.getElementById("insightsList"),
   favoritesList: document.getElementById("favoritesList"),
   resultCount: document.getElementById("resultCount"),
@@ -142,6 +145,7 @@ const elements = {
   shareButton: document.getElementById("shareButton"),
   copyButton: document.getElementById("copyButton"),
   shareStatus: document.getElementById("shareStatus"),
+  searchFeedback: document.getElementById("searchFeedback"),
   template: document.getElementById("resultCardTemplate")
 };
 
@@ -164,9 +168,11 @@ function bootstrap() {
 function bindEvents() {
   elements.form.addEventListener("submit", (event) => {
     event.preventDefault();
-    state.answers = getFormValues();
-    runSearch();
+    triggerSearch();
   });
+
+  elements.searchButton.addEventListener("click", () => triggerSearch({ scrollToResults: true }));
+  elements.heroSearchButton.addEventListener("click", () => triggerSearch({ scrollToResults: true }));
 
   elements.shareButton.addEventListener("click", shareFavorites);
   elements.copyButton.addEventListener("click", copyShareLink);
@@ -322,12 +328,31 @@ function buildInsights(answers, recommendations) {
   ];
 }
 
-function runSearch() {
+function triggerSearch(options = {}) {
+  state.answers = getFormValues();
+  setSearchBusy(true);
+  window.requestAnimationFrame(() => {
+    runSearch(options);
+    setSearchBusy(false);
+  });
+}
+
+function runSearch(options = {}) {
   state.recommendations = generateRecommendations(state.answers);
   state.insights = buildInsights(state.answers, state.recommendations);
   renderResults();
   renderInsights();
+  const summary = `${state.recommendations.length} gift matches refreshed for ${state.answers.relationship} · ${state.answers.occasion} · ${state.answers.budget}.`;
+  setSearchFeedback(summary, true);
   setShareStatus("Showing live results generated entirely in your browser.");
+
+  elements.resultsSection.classList.remove("refreshed");
+  void elements.resultsSection.offsetWidth;
+  elements.resultsSection.classList.add("refreshed");
+
+  if (options.scrollToResults) {
+    elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function renderResults() {
@@ -514,6 +539,18 @@ function slugify(value) {
 
 function setShareStatus(message) {
   elements.shareStatus.textContent = message;
+}
+
+function setSearchFeedback(message, isActive = false) {
+  elements.searchFeedback.textContent = message;
+  elements.searchFeedback.classList.toggle("active", isActive);
+}
+
+function setSearchBusy(isBusy) {
+  const label = isBusy ? "Matching gifts..." : "Find Gifts";
+  elements.searchButton.textContent = label;
+  elements.searchButton.classList.toggle("is-busy", isBusy);
+  elements.heroSearchButton.classList.toggle("is-busy", isBusy);
 }
 
 function readJson(key, fallback) {

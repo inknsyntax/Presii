@@ -27,7 +27,7 @@
             and Presii turns the chore of gift shopping into a premium discovery experience.
           </p>
           <div class="hero-actions">
-            <button class="primary-button hero-button" type="submit" form="giftForm">Start Matching</button>
+            <button id="heroSearchButton" class="primary-button hero-button" type="button">Start Matching</button>
             <div class="mini-proof">
               <strong>220+</strong>
               <span>curated retailer links generated in seconds</span>
@@ -72,10 +72,11 @@
               <p class="eyebrow">Questionnaire</p>
               <h2>Find the perfect gift</h2>
             </div>
-            <button id="searchButton" class="primary-button" type="submit" form="giftForm">
+            <button id="searchButton" class="primary-button" type="button">
               Find Gifts
             </button>
           </div>
+          <p id="searchFeedback" class="search-feedback">Answer a few questions and press Find Gifts to refresh the list.</p>
 
           <form id="giftForm" class="questionnaire-grid">
             <label>
@@ -174,7 +175,7 @@
         </aside>
       </main>
 
-      <section class="panel results-panel">
+      <section id="resultsSection" class="panel results-panel">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Recommendations</p>
