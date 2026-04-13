@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="water">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Presii helps you answer a few smart questions and instantly discover premium, personalized gift ideas with shoppable links across major retailers."
+    />
+    <title>Presii | Personalized Gift Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Presii Gift Studio</p>
+          <h1>The Spotify of Gift Finding</h1>
+          <p class="hero-text">
+            Type what you are looking for, answer a quick personality questionnaire,
+            and Presii turns the chore of gift shopping into a premium discovery experience.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button hero-button" type="submit" form="giftForm">Start Matching</button>
+            <div class="mini-proof">
+              <strong>220+</strong>
+              <span>curated retailer links generated in seconds</span>
+            </div>
+          </div>
+          <div class="hero-highlights">
+            <span>Hundreds of curated links</span>
+            <span>10 immersive themes</span>
+            <span>Favorites and sharing</span>
+          </div>
+        </div>
+        <div class="hero-showcase">
+          <div class="hero-stage">
+            <div class="gift-cluster cluster-large">
+              <span class="gift-label">For your stylish bestie</span>
+              <span class="gift-title">Curated surprise drop</span>
+            </div>
+            <div class="gift-cluster cluster-tall">
+              <span class="gift-label">Budget-smart picks</span>
+              <span class="gift-title">Luxury feel, zero guesswork</span>
+            </div>
+            <div class="gift-cluster cluster-wide">
+              <span class="gift-label">Trending now</span>
+              <span class="gift-title">Cozy tech, hobby kits, and statement gifts</span>
+            </div>
+          </div>
+          <div class="hero-side panel inset-panel">
+            <p class="eyebrow">How It Works</p>
+            <ol class="how-list">
+              <li>Enter keywords and answer a few questions.</li>
+              <li>Presii scores gift ideas against budget, interests, occasion, and style.</li>
+              <li>Browse shoppable results across Amazon, Target, Walmart, Costco, Sam's Club, Five Below, and more.</li>
+            </ol>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel questionnaire-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Questionnaire</p>
+              <h2>Find the perfect gift</h2>
+            </div>
+            <button id="searchButton" class="primary-button" type="submit" form="giftForm">
+              Find Gifts
+            </button>
+          </div>
+
+          <form id="giftForm" class="questionnaire-grid">
+            <label>
+              Keywords
+              <input id="keywords" name="keywords" placeholder="dog owner, cozy, gamer, travel" />
+            </label>
+            <label>
+              Who is it for?
+              <select id="relationship" name="relationship">
+                <option value="partner">Partner</option>
+                <option value="parent">Parent</option>
+                <option value="friend" selected>Friend</option>
+                <option value="coworker">Coworker</option>
+                <option value="sibling">Sibling</option>
+                <option value="child">Child</option>
+              </select>
+            </label>
+            <label>
+              Occasion
+              <select id="occasion" name="occasion">
+                <option value="birthday" selected>Birthday</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="holiday">Holiday</option>
+                <option value="graduation">Graduation</option>
+                <option value="thankyou">Thank You</option>
+                <option value="justbecause">Just Because</option>
+              </select>
+            </label>
+            <label>
+              Budget
+              <select id="budget" name="budget">
+                <option value="low">Under $40</option>
+                <option value="mid" selected>$40-$120</option>
+                <option value="high">$120-$220</option>
+                <option value="luxury">$220+</option>
+              </select>
+            </label>
+            <label>
+              Age Range
+              <select id="ageRange" name="ageRange">
+                <option value="13-17">13-17</option>
+                <option value="18-25" selected>18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36-50">36-50</option>
+                <option value="50+">50+</option>
+              </select>
+            </label>
+            <label>
+              Interests
+              <input id="interests" name="interests" placeholder="music, pets, fitness" />
+            </label>
+            <label>
+              Hobbies
+              <input id="hobbies" name="hobbies" placeholder="gaming, art, camping" />
+            </label>
+            <label>
+              Style
+              <input id="style" name="style" placeholder="minimal, bold, luxury" />
+            </label>
+          </form>
+        </section>
+
+        <aside class="sidebar-stack">
+          <section class="panel theme-panel">
+            <p class="eyebrow">Themes</p>
+            <h2>Customize the mood</h2>
+            <div id="themePicker" class="theme-grid"></div>
+          </section>
+
+          <section class="panel insights-panel">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">Insights</p>
+                <h2>Gift intelligence</h2>
+              </div>
+              <span id="resultCount" class="pill">0 matches</span>
+            </div>
+            <ul id="insightsList" class="insights-list"></ul>
+            <div class="action-row">
+              <button id="shareButton" class="secondary-button" type="button">Share Favorites</button>
+              <button id="copyButton" class="secondary-button" type="button">Copy Link</button>
+            </div>
+            <p id="shareStatus" class="share-status"></p>
+          </section>
+
+          <section class="panel favorites-panel">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">Favorites</p>
+                <h2>Saved list</h2>
+              </div>
+              <span id="favoriteCount" class="pill">0 saved</span>
+            </div>
+            <div id="favoritesList" class="favorites-list"></div>
+          </section>
+        </aside>
+      </main>
+
+      <section class="panel results-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Recommendations</p>
+            <h2>Shoppable gift matches</h2>
+          </div>
+          <p class="section-copy">
+            Every result opens a real retailer search page so you can purchase directly.
+          </p>
+        </div>
+        <div id="resultsGrid" class="results-grid"></div>
+      </section>
+    </div>
+
+    <template id="resultCardTemplate">
+      <article class="result-card">
+        <button class="favorite-toggle" type="button" aria-label="Save gift">♡</button>
+        <a class="result-link" target="_blank" rel="noreferrer noopener">
+          <div class="result-topline">
+            <span class="retailer-badge"></span>
+            <span class="score-badge"></span>
+          </div>
+          <h3 class="result-title"></h3>
+          <p class="result-price"></p>
+          <div class="tag-row"></div>
+        </a>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
